@@ -26,12 +26,12 @@
        <input type="submit" name="load_data" value="Load Data" />
  </form>
  <?php
-    $host = "tcp:dicodingkotabpn.database.windows.net,1433";
-    $user = "dicodingbpn";
-    $pass = "B4l!kp4p4n";
-    $db = "dicodingbpn";
+ //   $host = "tcp:dicodingkotabpn.database.windows.net,1433";
+ //   $user = "dicodingbpn";
+ //   $pass = "B4l!kp4p4n";
+ //   $db = "dicodingbpn";
     try {
-        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
+        $conn = new PDO("sqlsrv:server = tcp:dicodingkotabpn.database.windows.net,1433; Database = dicodingbpn", "dicodingbpn", "B4l!kp4p4n");
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     } catch(Exception $e) {
         echo "Failed: " . $e;
