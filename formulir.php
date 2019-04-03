@@ -51,7 +51,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
             
             // Insert data
             $sql_insert = "INSERT INTO KOTA (Nama_Kota, Kode_Kota) 
-                        VALUES (?,?,?,?)";
+                        VALUES (?,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $Nama_Kota);
             $stmt->bindValue(2, $Kode_Kota);
