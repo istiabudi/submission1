@@ -40,34 +40,22 @@ catch (PDOException $e) {
 $connectionInfo = array("UID" => "dicodingbpn@dicodingkotabpn", "pwd" => "B4l!kp4p4n", "Database" => "dicodingbpn", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = "tcp:dicodingkotabpn.database.windows.net,1433";
 $conn = sqlsrv_connect($serverName, $connectionInfo);
-
-
-
-//    $host = "<Nama server database Anda>";
-//    $user = "<Nama admin database Anda>";
-//    $pass = "<Password admin database Anda>";
-//    $db = "<Nama database Anda>";
-//    try {
-//        $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-//        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-//    } catch(Exception $e) {
-//        echo "Failed: " . $e;
-    }
-    if (isset($_POST['submit'])) {
-        try {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $job = $_POST['job'];
-            $date = date("Y-m-d");
-            // Insert data
-            $sql_insert = "INSERT INTO Pendaftaran (name, email, job, date) 
-                        VALUES (?,?,?,?)";
-            $stmt = $conn->prepare($sql_insert);
-            $stmt->bindValue(1, $name);
-            $stmt->bindValue(2, $email);
-            $stmt->bindValue(3, $job);
-            $stmt->bindValue(4, $date);
-            $stmt->execute();
+}
+if (isset($_POST['submit'])) {
+   try {
+       $name = $_POST['name'];
+       $email = $_POST['email'];
+       $job = $_POST['job'];
+       $date = date("Y-m-d");
+       // Insert data
+       $sql_insert = "INSERT INTO Pendaftaran (name, email, job, date) 
+       VALUES (?,?,?,?)";
+       $stmt = $conn->prepare($sql_insert);
+       $stmt->bindValue(1, $name);
+       $stmt->bindValue(2, $email);
+       $stmt->bindValue(3, $job);
+       $stmt->bindValue(4, $date);
+       $stmt->execute();
         } catch(Exception $e) {
             echo "Failed: " . $e;
         }
