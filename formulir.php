@@ -18,7 +18,7 @@
  <body>
  <h1>Daftar Kota!</h1>
  <p>Isi Nama Kota dan Kode Kota, Kemudian Klik <strong>Submit</strong> to register.</p>
- <form method="post" action="formulir.php" enctype="multipart/form-data" >
+ <form method="post" action="?action=add" enctype="multipart/form-data" >
        Nama_Kota <input type="text" name="name" id="name"/></br></br>
        Kode_Kota <input type="text" name="email" id="email"/></br></br>
        
